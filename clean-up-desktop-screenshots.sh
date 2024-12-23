@@ -19,6 +19,7 @@ clean_up_screenshots() {
 
     TARGET_DIR=$(ensure_dir_exists "$NEW_DIR_NAME")
 
+    # matches only files that start with "Screenshot"
     for file in Screenshot*; do
         if [ -e "$file" ]; then
             mv "$file" "$TARGET_DIR"
