@@ -7,7 +7,7 @@ NEW_DIR_NAME="screenshots-$(date +%Y-%m-%d)"
 # check if current date dir exists, if not, create it
 ensure_dir_exists() {
     local dir_name="$1"
-    if [ ! -d "$dir_name"]; then
+    if [ ! -d "$dir_name" ]; then
         mkdir "$dir_name"
     fi
     echo "$dir_name"
@@ -15,7 +15,10 @@ ensure_dir_exists() {
 
 # main function that actually does the cleanup
 clean_up_screenshots() {
-    cd "$DIR_TO_CLEANUP" || { echo "Failed to access directory to clean up"; exit 1; }
+    cd "$DIR_TO_CLEANUP" || {
+        echo "Failed to access directory to clean up"
+        exit 1
+    }
 
     TARGET_DIR=$(ensure_dir_exists "$NEW_DIR_NAME")
 
